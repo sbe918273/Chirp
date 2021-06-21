@@ -1,11 +1,5 @@
+#include "pch.h"
 #include "ShaderMap.h"
-
-enum class ShaderMap::ShaderType
-{
-	VERTEX_SHADER,
-	GEOMETRY_SHADER,
-	FRAGMENT_SHADER
-};
 
 const GLenum ShaderMap::typeEnums[3] =
 {

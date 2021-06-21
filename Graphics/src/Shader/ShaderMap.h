@@ -3,7 +3,13 @@
 
 namespace ShaderMap
 {
-	enum class ShaderType;
-	const GLenum typeEnums[3];
-	const std::string typeStrings[3];
+	enum class ShaderType
+	{
+		VERTEX,
+		GEOMETRY,
+		FRAGMENT
+	};
+
+	extern const GLenum typeEnums[3];
+	extern const std::string typeStrings[3];
 }

@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;STB_IMAGE_IMPLEMENTATION_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\imgui\include;$(SolutionDir)Dependencies\stb_image\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)src;ProjectDir)src\Shader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\imgui\include;$(SolutionDir)Dependencies\stb_image\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)src;$(ProjectDir)src\Shader;$(ProjectDir)src\Buffer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;STB_IMAGE_IMPLEMENTATIONNDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\imgui\include;$(SolutionDir)Dependencies\stb_image\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)src;ProjectDir)src\Shader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\imgui\include;$(SolutionDir)Dependencies\stb_image\include;$(SolutionDir)Dependencies\glm\include;$(ProjectDir)src;$(ProjectDir)src\Shader;$(ProjectDir)src\Buffer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -151,6 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Buffer\DataMap.cpp" />
+    <ClCompile Include="src\Buffer\Buffer.cpp" />
+    <ClCompile Include="src\Buffer\VertexArray.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -164,10 +167,18 @@
     <ClCompile Include="src\Shader\ShaderMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Buffer\DataMap.h" />
+    <ClInclude Include="src\Buffer\Buffer.h" />
+    <ClInclude Include="src\Buffer\VertexArray.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\pch\pch.h" />
     <ClInclude Include="src\Shader\Shader.h" />
     <ClInclude Include="src\Shader\ShaderMap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\test\FragmentTest.glsl" />
+    <None Include="res\shaders\test\VertexAddOn.glsl" />
+    <None Include="res\shaders\test\VertexTest.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

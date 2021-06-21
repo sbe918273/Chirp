@@ -20,7 +20,7 @@ Shader::Shader(const unsigned int typeCount, const std::vector<std::string>* pat
 	createProgram(typeCount, paths, types, id);
 }
 
-// Sets the shader's id to OpenGL's active program.
+// Sets the shader to the active program.
 void Shader::use() const
 {
 	glUseProgram(id);

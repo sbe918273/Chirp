@@ -27,17 +27,17 @@ int main()
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 440");
 
-	std::vector<std::string> shaderFiles[2];
-	shaderFiles[0] = std::vector<std::string>({ "res/shaders/test/VertexTest.glsl", "res/shaders/test/VertexAddOn.glsl" });
-	shaderFiles[1] = std::vector<std::string>({ "res/shaders/test/FragmentTest.glsl" });
+	std::vector<std::string> shaderFiles[2] = 
+	{
+		{ "res/shaders/test/VertexTest.glsl", "res/shaders/test/VertexAddOn.glsl" },
+		{ "res/shaders/test/FragmentTest.glsl" }
+	};
 	ShaderMap::ShaderType shaderTypes[2] = { ShaderMap::ShaderType::VERTEX, ShaderMap::ShaderType::FRAGMENT };
 	Shader solidProgram(2, shaderFiles, shaderTypes);
 	solidProgram.use();
 
-	int w;
-	int h;
-	int comp;
-	unsigned char* image = stbi_load("gold-dollar.png", &w, &h, &comp, STBI_rgb_alpha);
+	int w, h, channelCount;
+	unsigned char* image = stbi_load("gold-dollar.png", &w, &h, &channelCount, STBI_rgb_alpha);
 
 	float pos[8] =
 	{
@@ -61,8 +61,6 @@ int main()
 	va.SetElementBuffer(eb);
 	std::vector<VertexAttrib> attribs = { {2, DataMap::DataType::FLOAT} };
 	va.AddVertexBuffer(0, vb, attribs);
-
-
 
 	//GLuint vb; glGenBuffers(1, &vb); glBindBuffer(GL_ARRAY_BUFFER, vb); glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), pos, GL_STATIC_DRAW);
 	//GLuint va; glGenVertexArrays(1, &va); glBindVertexArray(va); glEnableVertexAttribArray(0); glVertexAttribPointer(0, 2, GL_FLOAT, false, 2 * sizeof(float), 0);

@@ -16,6 +16,7 @@ public:
 	VertexArray(VertexArray&& other) = delete;
 	VertexArray& operator=(const VertexArray& other) = delete;
 	VertexArray& operator=(VertexArray&& other) = delete;
+	~VertexArray();
 
 	static unsigned int getStride(const std::vector<VertexAttrib>& attribs);
 

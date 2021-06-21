@@ -19,12 +19,15 @@ Buffer::~Buffer()
 	glDeleteBuffers(1, &id);
 }
 
+// Sets the buffer's data for the first time.
 void Buffer::setData(const unsigned int size, const GLenum mode, const void* data) const
 {
 	bind();
 	glBufferData(type, size, data, mode);
 	unbind();
 }
+
+// Changes the buffer's data.
 void Buffer::subData(const unsigned int size, const unsigned int offset, const void* data) const
 {
 	bind();
@@ -32,11 +35,13 @@ void Buffer::subData(const unsigned int size, const unsigned int offset, const v
 	unbind();
 }
 
+// Binds the buffer.
 void Buffer::bind() const
 {
 	glBindBuffer(type, id);
 }
 
+// Unbind the buffer.
 void Buffer::unbind() const
 {
 	glBindBuffer(type, 0);

@@ -28,7 +28,7 @@ int main()
 
 	int w;
 	int h;
-	int compA;
+	int comp;
 	unsigned char* image = stbi_load("gold-dollar.png", &w, &h, &comp, STBI_rgb_alpha);
 
 	float red = 0.0f;
